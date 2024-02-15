@@ -25,7 +25,4 @@ class URLShortener:
         return short_url
 
     def expand_url(self, short_url):
-        if short_url in self.url_mapping:
-            return redirect(self.url_mapping[short_url], code=301)
-        else:
-            return None
+        return self.url_mapping.get(short_url)
