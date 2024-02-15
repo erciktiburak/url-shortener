@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to URL Shortener!</h1>
-    <form action="/" method="post">
-        <label for="long_url">Enter your URL:</label><br>
-        <input type="text" id="long_url" name="long_url"><br>
-        <input type="submit" value="Shorten URL">
-    </form>
-    {% if short_url %}
-        <p>Shortened URL: <a href="{{ short_url }}">{{ short_url }}</a></p>
-    {% endif %}
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold my-8">Welcome to URL Shortener!</h1>
+        <form action="/" method="post" class="my-4">
+            <label for="long_url" class="block">Enter your URL:</label>
+            <input type="text" id="long_url" name="long_url" class="border border-gray-300 rounded px-2 py-1">
+            <input type="submit" value="Shorten URL" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+        </form>
+        {% if short_url %}
+            <p class="mt-4">Shortened URL: <a href="{{ short_url }}" class="text-blue-500">{{ short_url }}</a></p>
+        {% endif %}
+    </div>
 </body>
 </html>
