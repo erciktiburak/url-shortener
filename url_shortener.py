@@ -1,5 +1,6 @@
 import string
 import random
+from flask import redirect
 
 class URLShortener:
     def __init__(self):
@@ -25,13 +26,6 @@ class URLShortener:
 
     def expand_url(self, short_url):
         if short_url in self.url_mapping:
-            return self.url_mapping[short_url]
+            return redirect(self.url_mapping[short_url], code=301)
         else:
             return None
-
-# Örnek kullanım
-url_shortener = URLShortener()
-long_url = "https://www.google.com"
-short_url = url_shortener.shorten_url(long_url)
-print(f"Kısaltılmış URL: {short_url}")
-print(f"Genişletilmiş URL: {url_shortener.expand_url(short_url)}")
